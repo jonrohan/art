@@ -1,4 +1,6 @@
-class ColorHelper {
+import type p5 from 'p5'
+
+export class ColorHelper {
   private static getColorVector(c: p5.Color) {
       return createVector(
           red(c),

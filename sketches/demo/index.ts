@@ -1,3 +1,7 @@
+import {PolygonHelper} from '../../lib/utils/PolygonHelper.js'
+import {ColorHelper} from '../../lib/utils/ColorHelper.js'
+import type p5 from 'p5'
+
 // GLOBAL VARS & TYPES
 let numberOfShapesControl: p5.Element;
 
@@ -20,7 +24,7 @@ function windowResized() {
 function draw() {
 
    // CLEAR BACKGROUND
-  background(0);
+   background(0);
 
   // CENTER OF SCREEN
   translate(width / 2,height / 2);
@@ -42,6 +46,6 @@ function draw() {
       stroke(colours[i]);
       rotate(spin);
       PolygonHelper.draw(numberOfSides, width)
-    pop();
+      pop();
   }
 }
