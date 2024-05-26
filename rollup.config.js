@@ -10,7 +10,7 @@ const baseConfig = {
   external: ['p5']
 }
 
-export default globSync('sketches/**/*.ts').map(file => {
+export default globSync(['sketches/**/*.ts', 'lib/**/*.ts']).map(file => {
     const inputFile = fileURLToPath(new URL(file, import.meta.url))
     return {
       ...baseConfig,

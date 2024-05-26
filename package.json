@@ -7,9 +7,9 @@
     "start": "run-p watch:*",
     "watch:js": "nodemon -e ts -x \"rollup -c\"",
     "watch:html": "nodemon -e mustache -x \"node scripts/generate-html.js\"",
-    "watch:css": "tailwindcss -i ./page.css -o ./build.css --watch",
+    "watch:css": "tailwindcss -i ./lib/page.css -o ./lib/build.css --watch",
     "watch:run": "browser-sync start --server -w index.html sketches/*.html sketches/*.js build.css",
-    "clean": "rm index.html sketches/*.js sketches/*.html"
+    "clean": "rm index.html sketches/*.js sketches/*.html lib/**/*.{css,js}"
   },
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",

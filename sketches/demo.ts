@@ -2,23 +2,12 @@ import {PolygonHelper} from '../lib/utils/PolygonHelper.js'
 import {ColorHelper} from '../lib/utils/ColorHelper.js'
 import type p5 from 'p5'
 
+import {setup} from '../lib/page-setup.js'
+
 // GLOBAL VARS & TYPES
 let numberOfShapesControl: p5.Element;
 
-// P5 WILL AUTOMATICALLY USE GLOBAL MODE IF A DRAW() FUNCTION IS DEFINED
-function setup() {
-  console.log("🚀 - Setup initialized - P5 is running");
-
-  createCanvas(windowWidth, windowHeight)
-  rectMode(CENTER).noFill().frameRate(30);
-  // NUMBER OF SHAPES SLIDER
-  numberOfShapesControl = createSlider(1, 30, 15, 1).position(10, 10).style("width", "100px");
-}
-
-// p5 WILL AUTO RUN THIS FUNCTION IF THE BROWSER WINDOW SIZE CHANGES
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
+setup()
 
 // p5 WILL HANDLE REQUESTING ANIMATION FRAMES FROM THE BROWSER AND WIL RUN DRAW() EACH ANIMATION FROME
 function draw() {
@@ -29,7 +18,7 @@ function draw() {
   // CENTER OF SCREEN
   translate(width / 2,height / 2);
 
-  const numberOfShapes = <number>numberOfShapesControl.value();
+  const numberOfShapes = 5
   const colours = ColorHelper.getColorsArray(numberOfShapes);
 
   // CONSISTENT SPEED REGARDLESS OF FRAMERATE
