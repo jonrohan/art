@@ -7,8 +7,8 @@
     "start": "run-p watch:*",
     "watch:js": "nodemon -e ts -x \"rollup -c\"",
     "watch:html": "nodemon -e mustache -x \"node scripts/generate-html.js\"",
-    "watch:css": "tailwindcss -i ./lib/page.pcss -o ./lib/build.css --watch",
-    "watch:run": "browser-sync start --server -w index.html sketches/*.html sketches/*.js build.css",
+    "watch:css": "tailwindcss -i ./lib/page.pcss -o ./lib/page.css --watch",
+    "watch:run": "browser-sync start --server -w index.html sketches/*.html sketches/*.js lib/page.css",
     "clean": "rimraf -g index.html sketches/*.{html,js} lib/**/*.{css,js}"
   },
   "dependencies": {

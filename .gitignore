@@ -1,8 +1,4 @@
 node_modules
-!build/
-build/*
-
-global.d.ts
 *.js
 *.html
-build.css
+*.css
