@@ -1,10 +1,11 @@
 <html>
-  <head>
-
-  </head>
+  <head></head>
   <body>
-    {{#sketches}}
-      <a href="/sketches/{{name}}.html">{{name}}</a>
-    {{/sketches}}
+    <h1>Sketches</h1>
+    <ul>
+      {{#sketches}}
+        <li><a href="/sketches/{{name}}.html">{{name}}</a></li>
+      {{/sketches}}
+    </ul>
   </body>
 </html>

@@ -4,11 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "run-p start-compile-js start-compile-html start-run",
-    "start-compile-js": "rollup -c",
-    "start-compile-html": "node scripts/generate-html.js",
-    "start-run": "browser-sync start --server -w",
-    "clean": ""
+    "start": "run-p watch:*",
+    "watch:compile-js": "nodemon -e ts -x \"rollup -c\"",
+    "watch:compile-html": "nodemon -e mustache -x \"node scripts/generate-html.js\"",
+    "watch:run": "browser-sync start --server -w index.html sketches/*.html sketches/*.js",
+    "clean": "rm index.html sketches/*.js sketches/*.html"
   },
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
@@ -17,6 +17,7 @@
     "browser-sync": "^3.0.2",
     "glob": "^10.4.1",
     "mustache": "^4.2.0",
+    "nodemon": "^3.1.1",
     "npm-run-all": "^4.1.5",
     "p5": "^1.9.0",
     "p5.js-svg": "^1.5.1",
