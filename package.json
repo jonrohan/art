@@ -4,9 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "start": "run-p start-compile start-run",
-    "start-compile": "rollup -c",
-    "start-run": "browser-sync start --server -w"
+    "start": "run-p start-compile-js start-compile-html start-run",
+    "start-compile-js": "rollup -c",
+    "start-compile-html": "node scripts/generate-html.js",
+    "start-run": "browser-sync start --server -w",
+    "clean": ""
   },
   "dependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
@@ -14,6 +16,7 @@
     "@types/p5": "^1.7.6",
     "browser-sync": "^3.0.2",
     "glob": "^10.4.1",
+    "mustache": "^4.2.0",
     "npm-run-all": "^4.1.5",
     "p5": "^1.9.0",
     "p5.js-svg": "^1.5.1",

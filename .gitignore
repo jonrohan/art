@@ -4,3 +4,4 @@ build/*
 
 global.d.ts
 sketches/**/*.js
+*.html

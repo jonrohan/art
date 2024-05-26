@@ -1,5 +1,5 @@
-import {PolygonHelper} from '../../lib/utils/PolygonHelper.js'
-import {ColorHelper} from '../../lib/utils/ColorHelper.js'
+import {PolygonHelper} from '../lib/utils/PolygonHelper.js'
+import {ColorHelper} from '../lib/utils/ColorHelper.js'
 import type p5 from 'p5'
 
 // GLOBAL VARS & TYPES
