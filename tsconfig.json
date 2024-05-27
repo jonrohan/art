@@ -9,5 +9,5 @@
     "allowSyntheticDefaultImports": true,
     "typeRoots" : ["./node_modules/@types"],
     "types": ["p5/global","p5/index", "p5/constants", "p5/literals"]
-  },
+  }
 }

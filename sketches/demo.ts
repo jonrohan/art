@@ -1,19 +1,22 @@
 import {PolygonHelper} from '../lib/utils/PolygonHelper.js'
 import {ColorHelper} from '../lib/utils/ColorHelper.js'
 import type p5 from 'p5'
-import { basicSetup, basicResize } from '../lib/page-setup.js';
+import { basicSetup, basicResize, addFormControl } from '../lib/page-setup.js';
 
 // GLOBAL VARS & TYPES
-let numberOfShapesControl: p5.Element;
+const numberOfShapesControl: HTMLInputElement = document.createElement('input');
 
 function setup() {
   basicSetup()
+  numberOfShapesControl.type = 'range'
+  numberOfShapesControl.value = '5'
+  numberOfShapesControl.min = '2'
+  addFormControl('Number of Shapes', numberOfShapesControl);
 }
 
 function windowResized() {
   basicResize()
 }
-
 
 // p5 WILL HANDLE REQUESTING ANIMATION FRAMES FROM THE BROWSER AND WIL RUN DRAW() EACH ANIMATION FROME
 function draw() {
@@ -24,7 +27,7 @@ function draw() {
   // CENTER OF SCREEN
   translate(width / 2,height / 2);
 
-  const numberOfShapes = 5
+  const numberOfShapes = parseInt(numberOfShapesControl.value)
   const colours = ColorHelper.getColorsArray(numberOfShapes);
 
   // CONSISTENT SPEED REGARDLESS OF FRAMERATE
