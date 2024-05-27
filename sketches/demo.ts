@@ -1,13 +1,19 @@
 import {PolygonHelper} from '../lib/utils/PolygonHelper.js'
 import {ColorHelper} from '../lib/utils/ColorHelper.js'
 import type p5 from 'p5'
-
-import {setup} from '../lib/page-setup.js'
+import { basicSetup, basicResize } from '../lib/page-setup.js';
 
 // GLOBAL VARS & TYPES
 let numberOfShapesControl: p5.Element;
 
-setup()
+function setup() {
+  basicSetup()
+}
+
+function windowResized() {
+  basicResize()
+}
+
 
 // p5 WILL HANDLE REQUESTING ANIMATION FRAMES FROM THE BROWSER AND WIL RUN DRAW() EACH ANIMATION FROME
 function draw() {

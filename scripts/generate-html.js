@@ -19,7 +19,11 @@ globSync('index.mustache').forEach(file => {
 
 // Render sketch.mustache to sketch.html
 sketches.forEach(sketch => {
-  const inputFile = fs.readFileSync('sketches/template.mustache', 'utf-8')
-  const outputPath = `sketches/${sketch.name}.html`
-  fs.writeFileSync(outputPath, Mustache.render(inputFile, sketch))
+  const detailFile = fs.readFileSync('sketches/detail.mustache', 'utf-8')
+  const detailOut = `sketches/${sketch.name}.html`
+  fs.writeFileSync(detailOut, Mustache.render(detailFile, sketch))
+
+  const sketchFile = fs.readFileSync('sketches/sketch.mustache', 'utf-8')
+  const sketchOut = `sketches/_${sketch.name}.html`
+  fs.writeFileSync(sketchOut, Mustache.render(sketchFile, sketch))
 })

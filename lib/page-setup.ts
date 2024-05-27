@@ -1,8 +1,8 @@
-export function setup() {
-  createCanvas(windowWidth, windowHeight - 48);
+export function basicSetup() {
+  createCanvas(windowWidth, windowHeight);
   rectMode(CENTER).noFill().frameRate(30);
 }
 
-export function windowResized() {
-  resizeCanvas(windowWidth, windowHeight - 48);
+export function basicResize() {
+  resizeCanvas(windowWidth, windowHeight);
 }
