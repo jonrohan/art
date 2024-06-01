@@ -1,6 +1,5 @@
 import {PolygonHelper} from '../lib/utils/PolygonHelper.js'
 import {ColorHelper} from '../lib/utils/ColorHelper.js'
-import type p5 from 'p5'
 import { basicSetup, basicResize, addFormControl } from '../lib/page-setup.js';
 
 // GLOBAL VARS & TYPES
@@ -34,7 +33,7 @@ function draw() {
   const speed = (frameCount / (numberOfShapes * 30)) * 2;
 
   // DRAW ALL SHAPES
-  for (var i = 0; i < numberOfShapes; i++) {
+  for (let i = 0; i < numberOfShapes; i++) {
     push();
     const lineWidth = 8;
     const spin = speed * (numberOfShapes - i);

@@ -12,7 +12,6 @@ export function basicResize() {
 }
 
 const controlsContainer = document.getElementById("controls")
-const controls = []
 
 export function addFormControl(label: string, control: HTMLElement) {
   const template = (document.querySelector('template#form-control') as HTMLTemplateElement).content.cloneNode(true) as HTMLElement
