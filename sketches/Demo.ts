@@ -21,8 +21,8 @@ function windowResized() {
 // p5 WILL HANDLE REQUESTING ANIMATION FRAMES FROM THE BROWSER AND WIL RUN DRAW() EACH ANIMATION FROME
 function draw() {
 
-   // CLEAR BACKGROUND
-   background(0);
+  // CLEAR BACKGROUND
+  background(0);
 
   // CENTER OF SCREEN
   translate(width / 2,height / 2);
@@ -36,14 +36,14 @@ function draw() {
   // DRAW ALL SHAPES
   for (var i = 0; i < numberOfShapes; i++) {
     push();
-      const lineWidth = 8;
-      const spin = speed * (numberOfShapes - i);
-      const numberOfSides = 3 + i;
-      const width = 40 * i;
-      strokeWeight(lineWidth);
-      stroke(colours[i]);
-      rotate(spin);
-      PolygonHelper.draw(numberOfSides, width)
-      pop();
+    const lineWidth = 8;
+    const spin = speed * (numberOfShapes - i);
+    const numberOfSides = 3 + i;
+    const width = 40 * i;
+    strokeWeight(lineWidth);
+    stroke(colours[i]);
+    rotate(spin);
+    PolygonHelper.draw(numberOfSides, width)
+    pop();
   }
 }
