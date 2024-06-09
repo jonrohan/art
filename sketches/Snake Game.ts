@@ -1,41 +1,58 @@
-import { basicResize, basicSetup } from "../lib/page-setup";
+import { addFormControl, basicSetup } from "../lib/page-setup";
 import { Snake } from "../lib/Snake.js";
 import { Food } from "../lib/Food.js";
 
-const snake = new Snake()
+let snake: Snake
 const food = new Food()
-
-
+const frameRateStart = 5
+const score = document.createElement('div')
+score.textContent = '0'
+const highScore = document.createElement('div')
+highScore.textContent = '0'
+const deaths = document.createElement('div')
+deaths.textContent = '0'
 
 function setup() {
   basicSetup()
-  frameRate(5 * snake.numberOfFoodEaten)
-  food.position(random(width), random(height))
+  resetGame()
+  addFormControl('Score', score)
+  addFormControl('High Score', highScore)
+  addFormControl('Deaths', deaths)
 }
 
-function windowResized() {
-  basicResize()
+function resetGame() {
+  snake = new Snake()
+  score.textContent = '0'
+  frameRate(frameRateStart)
+  moveFood()
 }
 
-function pickLocation() {
-  let cols = floor(width / snake.size)
-  let rows = floor(height / snake.size)
-  food.x = floor(random(cols)) * snake.size
-  food.y = floor(random(rows)) * snake.size
+function moveFood() {
+  let cols = floor(width / snake.size) - 2
+  let rows = floor(height / snake.size) - 2
+  food.x = floor(random(cols) + 1) * snake.size
+  food.y = floor(random(rows) + 1) * snake.size
 }
 
 function draw() {
   background(0)
+  if (snake.detect()) {
+    deaths.textContent = (parseInt(deaths.textContent) + 1).toString()
+    resetGame()
+    return
+  }
   snake.update()
   snake.show()
   if (snake.eat(food)) {
-    pickLocation()
+    score.textContent = snake.total.toString()
+    highScore.textContent = Math.max(parseInt(highScore.textContent), snake.total).toString()
+    frameRate(frameRateStart + snake.total * 0.25)
+    moveFood()
   }
   food.show()
 }
 
 function keyPressed() {
-  console.log(keyCode, "hi")
   if (keyCode === UP_ARROW) {
     snake.direction(0, -1)
   } else if (keyCode === DOWN_ARROW) {

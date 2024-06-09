@@ -31,9 +31,3 @@ function draw() {
     stars[i].show()
   }
 }
-
-// .test {
-//   background:gray;
-//   width:200px;
-//   height:200px;
-// }

@@ -1,7 +1,7 @@
 export class Food {
   x: number = 0;
   y: number = 0;
-  size: number = 20;
+  size: number = 40;
 
   position(x: number, y: number) {
     this.x = x;
@@ -9,7 +9,6 @@ export class Food {
   }
 
   show() {
-    translate(this.size / 2, this.size / 2);
     fill(255, 0, 100);
     rect(this.x, this.y, this.size, this.size);
   }
