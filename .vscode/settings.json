@@ -1,7 +1,7 @@
 {
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    "*.ts": "${capture}.js, ${capture}.html",
+    "*.ts": "${capture}.js, ${capture}.html, _${capture}.html",
     "*.mustache": "${capture}.html",
     "*.pcss": "${capture}.css",
   },

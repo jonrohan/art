@@ -1,4 +1,4 @@
-import { addFormControl, basicSetup } from "../lib/page-setup";
+import { addFormControl, basicSetup } from "../lib/utils/page-setup.js";
 import { Snake } from "../lib/Snake.js";
 import { Food } from "../lib/Food.js";
 

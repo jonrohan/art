@@ -1,4 +1,4 @@
-import { basicResize, basicSetup } from "../lib/page-setup";
+import { basicResize, basicSetup } from "../lib/utils/page-setup.js";
 import { Snake } from "../lib/Snake";
 import { Star } from "../lib/Star.js";
 
@@ -11,7 +11,7 @@ function setup() {
   }
   const style = document.createElement('style');
   style.innerHTML = `
-    body {
+    canvas {
       cursor: url('/sketches/rocket.png'), auto;
     }
   `
@@ -25,9 +25,14 @@ function windowResized() {
 
 function draw() {
   background(0)
-  translate(mouseX, mouseY)
-  for (let i = 0; i < stars.length; i++) {
-    stars[i].update()
-    stars[i].show()
+  if (width - 5 >= mouseX && mouseX >= 5 && height - 5 >= mouseY && mouseY >= 5) {
+    console.log(mouseY, height)
+    translate(mouseX, mouseY)
+  } else {
+    translate(width / 2, height / 2)
+  }
+  for (const star of stars) {
+    star.update()
+    star.show()
   }
 }
