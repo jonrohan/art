@@ -1,0 +1,6 @@
+{
+  "serveStatic": [{
+    "route": ["/art"],
+    "dir": "."
+  }]
+}

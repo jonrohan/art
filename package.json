@@ -12,7 +12,7 @@
     "watch:js": "rollup -c --watch",
     "watch:html": "nodemon -e mustache -x \"node scripts/generate-html.js\"",
     "watch:css": "tailwindcss -i ./lib/page.pcss -o ./lib/page.css --watch",
-    "watch:run": "browser-sync start --server -w *.html sketches/*.js *.css",
+    "watch:run": "browser-sync start -c browser-sync.json --server -w *.html sketches/*.js *.css",
     "clean": "rimraf -g index.html sketches/*.{html,js} lib/**/*.{css,js}",
     "lint": "eslint --fix **/*.ts *.js"
   },
