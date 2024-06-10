@@ -4,6 +4,13 @@ function controlWidth() {
   return document.getElementById("controls").offsetWidth;
 }
 
+function randomUUID() {
+  return (
+    [1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g,
+    c => (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+  )
+}
+
 export function basicSetup() {
   createCanvas(windowWidth - controlWidth(), windowHeight);
   rectMode(CENTER).noFill().frameRate(30);
@@ -31,7 +38,7 @@ export function basicResize() {
 }
 
 export function addFormControl(label: string, control: HTMLElement) {
-  const id = control.id || crypto.randomUUID()
+  const id = control.id || randomUUID()
   const template = (document.querySelector('template#form-control') as HTMLTemplateElement).content.cloneNode(true) as HTMLElement
   const labelElement = template.querySelector('label')
   const rowElement = document.createElement('div')
@@ -54,7 +61,7 @@ export function addFormControl(label: string, control: HTMLElement) {
 
 export function createRange(value: number, min: number, max: number, step: number, id?: string) {
   const range = document.createElement('input');
-  range.id = id || crypto.randomUUID()
+  range.id = id || randomUUID()
   range.type = 'range'
   range.value = value.toString()
   range.setAttribute('data-value', value.toString())
