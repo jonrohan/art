@@ -16,10 +16,10 @@ export class Flock {
     }
 
     nearbyBoids(position: p5.Vector): Boid[] {
-      let perceptionRadius = 50;
+      let perceptionRadius = (document.getElementById('perception-radius') as HTMLInputElement)?.valueAsNumber || 50
       return this.boids.filter((other) => {
-        return p5.Vector.dist(position, other.position) < perceptionRadius;
-      });
+        return p5.Vector.dist(position, other.position) < perceptionRadius
+      })
     }
 
     kill(boid: Boid) {

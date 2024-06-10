@@ -31,15 +31,35 @@ export function basicResize() {
 }
 
 export function addFormControl(label: string, control: HTMLElement) {
+  const id = control.id || crypto.randomUUID()
   const template = (document.querySelector('template#form-control') as HTMLTemplateElement).content.cloneNode(true) as HTMLElement
-  template.appendChild(control)
   const labelElement = template.querySelector('label')
-  const id = crypto.randomUUID()
+  const rowElement = document.createElement('div')
+
+  rowElement.className = 'mb-5 relative'
+
   labelElement.textContent = label
   labelElement.setAttribute('for', id)
+
   control.id = id
-  controlsContainer.appendChild(template)
   control.addEventListener('change', (event) => {
-    console.log(event.target.value)
+    const input = event.target as HTMLInputElement
+    input.setAttribute('data-value', input.value)
   })
+
+  template.appendChild(control)
+  rowElement.appendChild(template)
+  controlsContainer.appendChild(rowElement)
+}
+
+export function createRange(value: number, min: number, max: number, step: number, id?: string) {
+  const range = document.createElement('input');
+  range.id = id || crypto.randomUUID()
+  range.type = 'range'
+  range.value = value.toString()
+  range.setAttribute('data-value', value.toString())
+  range.step = step.toString()
+  range.min = min.toString()
+  range.max = max.toString()
+  return range
 }

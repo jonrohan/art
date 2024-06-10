@@ -5,6 +5,10 @@
   "type": "module",
   "scripts": {
     "start": "run-p watch:*",
+    "build": "run-p build:*",
+    "build:js": "rollup -c",
+    "build:html": "node scripts/generate-html.js",
+    "build:css": "tailwindcss -i ./lib/page.pcss -o ./lib/page.css",
     "watch:js": "rollup -c --watch",
     "watch:html": "nodemon -e mustache -x \"node scripts/generate-html.js\"",
     "watch:css": "tailwindcss -i ./lib/page.pcss -o ./lib/page.css --watch",

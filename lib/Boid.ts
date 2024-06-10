@@ -53,7 +53,7 @@ export class Boid {
       cohesion.limit(this.maxForce)
 
       separation.div(total)
-      separation.setMag(this.maxSpeed + 2)
+      separation.setMag(this.maxSpeed)
       separation.sub(this.velocity)
       separation.limit(this.maxForce)
     }

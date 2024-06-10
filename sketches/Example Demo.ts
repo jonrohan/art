@@ -1,6 +1,6 @@
 import {PolygonHelper} from '../lib/utils/PolygonHelper.js'
 import {ColorHelper} from '../lib/utils/ColorHelper.js'
-import { basicSetup, basicResize, addFormControl } from '../lib/utils/page-setup.jstup.js';
+import { basicSetup, basicResize, addFormControl } from '../lib/utils/page-setup.js';
 
 // GLOBAL VARS & TYPES
 const numberOfShapesControl: HTMLInputElement = document.createElement('input');

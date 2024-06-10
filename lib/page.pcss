@@ -1,7 +1,14 @@
 @tailwind base;
 @tailwind utilities;
 
-#controls input[type='range']::before {
+#controls input[type='range'] {
+  width: 100%;
+}
+
+#controls input[type='range']::after {
   content: attr(data-value);
   display: inline;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
