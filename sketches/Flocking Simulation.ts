@@ -22,7 +22,7 @@ randomColor.addEventListener('change', rebuild)
 const shapesControl = document.createElement('select')
 shapesControl.addEventListener('change', rebuild)
 shapesControl.multiple = true
-shapesControl.className = 'form-multiselect block w-full mt-1 rounded-md shadow-sm border-gray-300 bg-white'
+shapesControl.className = 'form-multiselect block w-full mt-1 rounded-md shadow-sm border-gray-300 bg-white text-black'
 shapesControl.innerHTML = `
   <option value="triangle">Triangle</option>
   <option value="circle">Circle</option>
